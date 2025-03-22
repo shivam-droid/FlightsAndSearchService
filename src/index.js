@@ -1,21 +1,21 @@
-//package import
-import express from 'express'
+// Package imports
+const express = require('express');
 
-//Files import
-import {PORT} from './config/serverConfig.js'
+// File imports
+const { PORT } = require('./config/serverConfig');
+const ApiRoute = require('./routes/index');
 
-const setupAndStartSever = async ()=>{
-
+const setupAndStartServer = async () => {
     const app = express();
 
-    //middlewares
-    app.use(express.json);  //inbuilt parsing middleware(like body-parser)
-    app.use(express.urlencoded({extended:true}));
+    // Middlewares
+    app.use(express.json()); // Inbuilt parsing middleware (like body-parser)
+    app.use(express.urlencoded({ extended: true }));
+    app.use('/api', ApiRoute);
 
-    app.listen(PORT,()=>{
+    app.listen(PORT, () => {
         console.log(`Server is running on Port : ${PORT}`);
-    })
+    });
+};
 
-}
-
-setupAndStartSever();
+setupAndStartServer();

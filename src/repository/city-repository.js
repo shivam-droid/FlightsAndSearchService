@@ -1,4 +1,4 @@
-import {City} from '../models/city.js';
+const { City } = require('../models');
 
 class CityRepository {
 
@@ -11,34 +11,35 @@ class CityRepository {
             
         } catch (error) {
             console.log("Something went wrong in repository layer");
-            throw {error};
+            throw error;
         }
     }
 
     async deleteCity(id){
         try {
 
-            City.destroy({
+            await City.destroy({
                 where: {
                     id: id,
                 }
             })
+            return true;
             
         } catch (error) {
             console.log("Something went wrong in repository layer");
-            throw {error};
+            throw error;
         }
     }
 
     async getCity(id){
         try {
 
-            const city = await City.findbyPk(id);
+            const city = await City.findByPk(id);
             return city;
             
         } catch (error) {
             console.log("Something went wrong in repository layer");
-            throw {error};
+            throw error;
         }
     }
 
@@ -50,13 +51,13 @@ class CityRepository {
                     id:id,
                 }
             })
+            return response;
             
         } catch (error) {
             console.log("Something went wrong in repository layer");
-            throw {error};
+            throw error;
         }
     }
-
 }
 
-export default CityRepository;
+module.exports = CityRepository;

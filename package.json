@@ -1,6 +1,5 @@
 {
   "name": "flightandsearch",
-  "type": "module",
   "version": "1.0.0",
   "description": "\"Flight and Search MicroService\"",
   "main": "index.js",

@@ -1,5 +1,5 @@
-import CityRepository from "./city-repository";
+const CityRepository = require("./city-repository.js");
 
-export {
+module.exports  = {
     CityRepository,
 }
