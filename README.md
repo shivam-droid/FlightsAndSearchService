@@ -45,6 +45,15 @@ npx sequelize model:generate --name Airport --attributes name:String,address:Str
 
 npx sequelize db:migrate
 
-npx sequelize seed:generate --name add-airplanes
+npx sequelize seed:generate --name add-airports
 npx sequelize db:seed:all
+```
+### Airplane -> id, modelNumber, capacity, created_at, updated_at
+### Flight -> id,
+
+```
+npx sequelize model:generate --name Airplane --attributes modelNumber:String,capacity:Integer
+npx sequelize model:generate --name Flight --attributes flightNumber:String,airplaneId:Integer,departureAirportId:Integer,arrivalAirportId:Integer,departureTime:Date,arrivalTime:Date,price:Integer,boardingGate:String,totalSeats:Integer
+
+npx sequelize db:migrate
 ```
