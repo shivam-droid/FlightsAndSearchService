@@ -2,14 +2,18 @@
 const express = require('express');
 
 //importing file
-const {create,destroy,get,update,getAll} = require('../../controllers/city-controller.js');
+const CityController = require('../../controllers/city-controller.js');
+const FlightController = require('../../controllers/flight-controller.js');
 
 const router = express.Router();
 
-router.post('/city',create);
-router.delete('/city/:id',destroy);
-router.get('/city/:id',get);
-router.get('/city',getAll);
-router.patch('/city/:id',update);
+router.post('/city',CityController.create);
+router.delete('/city/:id',CityController.destroy);
+router.get('/city/:id',CityController.get);
+router.get('/city',CityController.getAll);
+router.patch('/city/:id',CityController.update);
+
+router.post('/flight',FlightController.create);
+router.get('/flight/:id',FlightController.get);
 
 module.exports = router;

@@ -49,11 +49,12 @@ npx sequelize seed:generate --name add-airports
 npx sequelize db:seed:all
 ```
 ### Airplane -> id, modelNumber, capacity, created_at, updated_at
-### Flight -> id,
+### Flight -> id,flightNumber,airplaneId,departureAirportId,arrivalAirportId,departureTime,arrivalTime,price,boardingGate,totalSeats
 
 ```
 npx sequelize model:generate --name Airplane --attributes modelNumber:String,capacity:Integer
-npx sequelize model:generate --name Flight --attributes flightNumber:String,airplaneId:Integer,departureAirportId:Integer,arrivalAirportId:Integer,departureTime:Date,arrivalTime:Date,price:Integer,boardingGate:String,totalSeats:Integer
+npx sequelize model:generate --name Flight --attributes flightNumber:String,airplaneId:Integer,departureAirportId:Integer,
+arrivalAirportId:Integer,departureTime:Date,arrivalTime:Date,price:Integer,boardingGate:String,totalSeats:Integer
 
 npx sequelize db:migrate
 ```
