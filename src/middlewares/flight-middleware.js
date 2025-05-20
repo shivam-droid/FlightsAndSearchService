@@ -1,3 +1,4 @@
+const {ClientErrorCodes} = require('../utils/error-codes');
 const validateFightCreate = (req, res, next) => {
     if(
         !req.body.flightNumber ||
@@ -9,7 +10,7 @@ const validateFightCreate = (req, res, next) => {
         !req.body.price 
     )
     {
-        return res.status(400).json({
+        return res.status(ClientErrorCodes.BAD_REQUEST).json({
             data : {},
             success : false,
             message : "Please provide all required fields",
